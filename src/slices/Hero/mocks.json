@@ -3,11 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"first_nmae": {
-				"__TYPE__": "FieldContent",
-				"value": "through",
-				"type": "Text"
-			},
 			"last_name": {
 				"__TYPE__": "FieldContent",
 				"value": "chain",
@@ -16,6 +11,11 @@
 			"tag_line": {
 				"__TYPE__": "FieldContent",
 				"value": "scientist",
+				"type": "Text"
+			},
+			"first_name": {
+				"__TYPE__": "FieldContent",
+				"value": "many",
 				"type": "Text"
 			}
 		},
