@@ -5,6 +5,7 @@ import { ContactShadows, Environment, Float } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
+import { color } from "three/examples/jsm/nodes/Nodes.js";
 
 export default function Shapes() {
   return (
@@ -39,9 +40,46 @@ function Geometries() {
       r: 0.3,
       geometry: new THREE.IcosahedronGeometry(3), //Gen
     },
+    {
+      position: [1, -0.75, 4],
+      r: 0.4,
+      geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16), //Pill
+    },
+    {
+      position: [-1.4, 2, -4],
+      r: 0.6,
+      geometry: new THREE.DodecahedronGeometry(1.5), //Soccer Ball
+    },
+    {
+      position: [-0.8, -0.75, 5],
+      r: 0.5,
+      geometry: new THREE.TorusGeometry(0.6, 0.25, 16, 32), //Donut
+    },
+    {
+      position: [1.6, 1.6, -4],
+      r: 0.7,
+      geometry: new THREE.OctahedronGeometry(1.5), //Diamond
+    },
   ];
 
-  const materials = [new THREE.MeshNormalMaterial()];
+  const materials = [
+    new THREE.MeshNormalMaterial(),
+    new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0 }),
+    new THREE.MeshStandardMaterial({ color: 0xf1c40f, roughness: 0.4 }),
+    new THREE.MeshStandardMaterial({ color: 0xe67e22, roughness: 0.1 }),
+    new THREE.MeshStandardMaterial({ color: 0x27ae60, roughness: 0.1 }),
+    new THREE.MeshStandardMaterial({ color: 0x34495e, roughness: 0.1 }),
+    new THREE.MeshStandardMaterial({
+      roughness: 0,
+      metalness: 0.5,
+      color: 0x273c75,
+    }),
+    new THREE.MeshStandardMaterial({
+      roughness: 0.1,
+      metalness: 0.5,
+      color: 0x44bd32,
+    }),
+  ];
 
   return geometries.map(({ position, r, geometry }) => (
     <Geometry
@@ -56,7 +94,7 @@ function Geometries() {
 
 function Geometry({ r, position, materials, geometry }) {
   const meshRef = useRef();
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   const startingMaterial = getRandomMaterial();
 
@@ -84,6 +122,22 @@ function Geometry({ r, position, materials, geometry }) {
   const handlePointerOut = () => {
     document.body.style.cursor = "default";
   };
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      setVisible(true);
+      gsap.from(meshRef.current.scale, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 1,
+        ease: "elastic.out(1,0.3)",
+        delay: 0.3,
+      });
+    });
+
+    return () => ctx.revert(); // some cleanup
+  }, []);
 
   return (
     <group position={position} ref={meshRef}>
