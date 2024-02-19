@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "aaron-bond.better-comments",
-        "patbenatar.advanced-new-file"
+        "patbenatar.advanced-new-file",
+        "dsznajder.es7-react-js-snippets"
     ]
 }
