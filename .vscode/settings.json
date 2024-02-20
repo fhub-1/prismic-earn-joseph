@@ -1,5 +1,7 @@
 {
     "editor.accessibilityPageSize": 18,
     "editor.fontSize": 18,
-    "editor.formatOnPaste": true
+    "editor.formatOnPaste": true,
+    "editor.wordWrap": "on",
+    "editor.fontLigatures": true
 }
