@@ -3,5 +3,5 @@
     "editor.fontSize": 18,
     "editor.formatOnPaste": true,
     "editor.wordWrap": "on",
-    "editor.fontLigatures": true
+    "editor.fontLigatures": true,
 }
