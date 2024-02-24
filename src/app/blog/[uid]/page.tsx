@@ -17,22 +17,22 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("blog_post", params.uid)
     .catch(() => notFound());
 
-  // function formDate(date: DateField) {
-  //   if (isFilled.date(date)) {
-  //     const dateOptions: Intl.DateTimeFormatOptions = {
-  //       weekday: "long",
-  //       year: "numeric",
-  //       month: "long",
-  //       day: "numeric",
-  //     };
+  function formDate(date: DateField) {
+    if (isFilled.date(date)) {
+      const dateOptions: Intl.DateTimeFormatOptions = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
 
-  //     return new Intl.DateTimeFormat("en-ke", dateOptions).format(
-  //       new Date(date)
-  //     );
-  //   }
-  // }
+      return new Intl.DateTimeFormat("en-ke", dateOptions).format(
+        new Date(date)
+      );
+    }
+  }
 
-  // const formattedDate = formDate(page.data.date);
+  const formattedDate = formDate(page.data.date);
 
   return (
     // <Bounded as="article">
