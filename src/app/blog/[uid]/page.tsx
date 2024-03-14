@@ -1,13 +1,9 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SliceZone } from "@prismicio/react";
 
-import { createClient } from "@/prismicio";
-import { components } from "@/slices";
-import Bounded from "@/components/Bounded";
-import Heading from "@/components/Heading";
-import { DateField, isFilled } from "@prismicio/client";
 import ContentBody from "@/components/ContentBody";
+import { createClient } from "@/prismicio";
+// import { DateField, isFilled } from "@prismicio/client";
 
 type Params = { uid: string };
 
@@ -16,23 +12,6 @@ export default async function Page({ params }: { params: Params }) {
   const page = await client
     .getByUID("blog_post", params.uid)
     .catch(() => notFound());
-
-  function formDate(date: DateField) {
-    if (isFilled.date(date)) {
-      const dateOptions: Intl.DateTimeFormatOptions = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      };
-
-      return new Intl.DateTimeFormat("en-ke", dateOptions).format(
-        new Date(date)
-      );
-    }
-  }
-
-  const formattedDate = formDate(page.data.date);
 
   return (
     // <Bounded as="article">
