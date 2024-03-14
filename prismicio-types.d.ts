@@ -312,6 +312,8 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  date: prismic.DateField;
 }
 
 /**
@@ -985,7 +987,7 @@ declare module "@prismicio/client" {
   interface CreateClient {
     (
       repositoryNameOrEndpoint: string,
-      options?: prismic.ClientConfig,
+      options?: prismic.ClientConfig
     ): prismic.Client<AllDocumentTypes>;
   }
 
