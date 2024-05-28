@@ -9,6 +9,7 @@ import { createClient, repositoryName } from "@/prismicio";
 import Header from "@/components/Header";
 import Footer from "@/components/Fotter";
 
+// changing fonts
 const caveat = Caveat({ subsets: ["latin"] });
 
 export async function generateMetadata(): Promise<Metadata> {
