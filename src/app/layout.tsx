@@ -1,14 +1,15 @@
 import "./globals.css";
 import clsx from "clsx";
 import type { Metadata } from "next";
-import { Urbanist } from "next/font/google";
+import { Caveat } from "next/font/google";
 import { PrismicPreview } from "@prismicio/next";
 import { createClient, repositoryName } from "@/prismicio";
+
 
 import Header from "@/components/Header";
 import Footer from "@/components/Fotter";
 
-const urbanist = Urbanist({ subsets: ["latin"] });
+const caveat = Caveat({ subsets: ["latin"] });
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -30,7 +31,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-slate-900">
-      <body className={clsx(urbanist.className, "relative min-h-screen")}>
+      <body className={clsx(caveat.className, "relative min-h-screen")}>
         <Header />
         {children}
         <div className="background-gradient absolute inset-0 -z-50 max-h-screen" />
