@@ -33,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-slate-900">
       <body className={clsx(caveat.className, "relative min-h-screen")}>
+      <a href="#tally-open=31KgA1&tally-layout=modal&tally-emoji-text=👋&tally-emoji-animation=wave">Join My NewsLetter</a>
         <Header />
         {children}
         <div className="background-gradient absolute inset-0 -z-50 max-h-screen" />
