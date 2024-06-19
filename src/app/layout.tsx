@@ -38,8 +38,7 @@ export default function RootLayout({
         <div className="background-gradient absolute inset-0 -z-50 max-h-screen" />
         <div className="pointer-events-none absolute inset-0 -z-40 h-full bg-[url('/noisetexture.jpg')] opacity-20 mix-blend-soft-light"></div>
 
-        <a href="#tally-open=31KgA1&tally-layout=modal&tally-emoji-text=👋&tally-emoji-animation=wave">Join My NewsLetter</a>
-        <Footer />
+        
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
